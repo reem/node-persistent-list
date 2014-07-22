@@ -122,6 +122,13 @@ describe('persistent-list', function () {
         expect(list.List.fromArray(test).length()).to.equal(test.length);
       });
     });
+
+    describe('toArray', function () {
+      it('should return an array of the elements in a list', function () {
+        var sampleList = list.empty().insert(4).insert(3).insert(2).insert(1);
+        expect(sampleList.toArray()).to.eql([1, 2, 3, 4]);
+      });
+    });
   });
 });
 
