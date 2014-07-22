@@ -90,5 +90,27 @@ describe('persistent-list', function () {
       expect(list.singleton(5).tail).to.equal(list.empty());
     });
   });
+
+  describe('List.prototype', function () {
+    describe('isCons', function () {
+      it('should return true for Cons', function () {
+        expect(list.singleton(6).isCons());
+      });
+
+      it('should return false for None', function () {
+        expect(list.empty().isCons()).to.equal(false);
+      });
+    });
+
+    describe('isNone', function () {
+      it('should return false for Cons', function () {
+        expect(list.singleton(6).isNone()).to.equal(false);
+      });
+
+      it('should return true for None', function () {
+        expect(list.empty().isNone());
+      });
+    });
+  });
 });
 
