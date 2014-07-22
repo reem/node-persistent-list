@@ -44,5 +44,19 @@ describe('persistent-list', function () {
       expect(l.toArray()).to.eql([7, 5, 4]);
     });
   });
+
+  describe('None', function () {
+    it('should return a None', function () {
+      expect(new list.None()).to.be.an.instanceof(list.None);
+    });
+
+    it('should return a List', function () {
+      expect(new list.None()).to.be.an.instanceof(list.List);
+    });
+
+    it('should have length 0', function () {
+      expect(new list.None().length()).to.equal(0);
+    });
+  });
 });
 
