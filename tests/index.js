@@ -58,5 +58,15 @@ describe('persistent-list', function () {
       expect(new list.None().length()).to.equal(0);
     });
   });
+
+  describe('List.empty', function () {
+    it('should return a None', function () {
+      expect(list.empty()).to.be.an.instanceof(list.None);
+    });
+
+    it('should return the same object every time', function () {
+      expect(list.empty()).to.equal(list.empty());
+    });
+  });
 });
 
