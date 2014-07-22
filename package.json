@@ -1,7 +1,10 @@
 {
   "name": "persistent-list",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "inherits": "^2.0.1",
+    "lodash": "^2.4.1"
+  },
   "scripts": {
     "test": "./node_modules/gulp/bin/gulp.js test"
   },
