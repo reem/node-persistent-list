@@ -68,5 +68,27 @@ describe('persistent-list', function () {
       expect(list.empty()).to.equal(list.empty());
     });
   });
+
+  describe('List.singleton', function () {
+    it('should return a Cons', function () {
+      expect(list.singleton(5)).to.be.an.instanceof(list.Cons);
+    });
+
+    it('should have length 1', function () {
+      expect(list.singleton(123).length()).to.equal(1);
+    });
+
+    it('should contain the passed in value as head', function () {
+      expect(list.singleton(5).head).to.equal(5);
+    });
+
+    it('should have a None for a tail', function () {
+      expect(list.singleton(5).tail).to.be.an.instanceof(list.None);
+    });
+
+    it('should always have the same None as empty for a tail', function () {
+      expect(list.singleton(5).tail).to.equal(list.empty());
+    });
+  });
 });
 
