@@ -111,6 +111,17 @@ describe('persistent-list', function () {
         expect(list.empty().isNone());
       });
     });
+
+    describe('length', function () {
+      it('should return the length of a short list', function () {
+        expect(list.empty().insert(4).insert(3).insert(2).insert(1).length()).to.equal(4);
+      });
+
+      it('should return the length of a long list', function () {
+        for (var i = 0, test = []; i < 1000; i++) { test.push(i); }
+        expect(list.List.fromArray(test).length()).to.equal(test.length);
+      });
+    });
   });
 });
 
