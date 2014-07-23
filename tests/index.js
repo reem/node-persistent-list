@@ -129,6 +129,16 @@ describe('persistent-list', function () {
         expect(sampleList.toArray()).to.eql([1, 2, 3, 4]);
       });
     });
+
+    describe('fromArray', function () {
+      it('should return a list with all the elements from the array', function () {
+        for (var i = 0, test = []; i < 1000; i++) { test.push(i); }
+        i = 0;
+        list.List.fromArray(test).each(function (val) {
+          expect(val).to.equal(i++);
+        });
+      });
+    });
   });
 });
 
