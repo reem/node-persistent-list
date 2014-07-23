@@ -139,6 +139,15 @@ describe('persistent-list', function () {
         });
       });
     });
+
+    describe('reduce', function () {
+      it('should behave like array.reduce with a flipped combiner', function () {
+        for (var i = 0, test = []; i < 1000; i++) { test.push(i); }
+        expect(list.List.fromArray(test).reduce(add, 0)).to.equal(test.reduce(add, 0));
+      });
+    });
   });
 });
+
+function add(a, b) { return a + b; }
 
