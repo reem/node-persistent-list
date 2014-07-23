@@ -146,8 +146,30 @@ describe('persistent-list', function () {
         expect(list.List.fromArray(test).reduce(add, 0)).to.equal(test.reduce(add, 0));
       });
     });
+
+    describe('reduceRight', function () {
+      it('should behave like reduce for commutative functions', function () {
+        for (var i = 0, test = []; i < 1000; i++) { test.push(i); }
+        expect(list.List.fromArray(test).reduceRight(list.Cons, list.empty()))
+          .to.eql(list.List.fromArray(test));
+      });
+
+      it('should reduce from the right', function () {
+        for (var i = 0, test = []; i < 1000; i++) { test.push(i); }
+        expect(list.List.fromArray(test).reduceRight(add, 0))
+          .to.equal(test.reduceRight(add, 0));
+      });
+    });
+
+    describe('map', function () {
+      it('should behave like array.map', function () {
+        for (var i = 0, test = []; i < 1000; i++) { test.push(i); }
+        expect(list.List.fromArray(test).map(double).toArray()).to.eql(test.map(double));
+      });
+    });
   });
 });
 
 function add(a, b) { return a + b; }
+function double(a) { return a * 2; }
 
