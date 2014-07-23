@@ -167,9 +167,17 @@ describe('persistent-list', function () {
         expect(list.List.fromArray(test).map(double).toArray()).to.eql(test.map(double));
       });
     });
+
+    describe('filter', function () {
+      it('should behave like array.filter', function () {
+        for (var i = 0, test = []; i < 1000; i++) { test.push(i); }
+        expect(list.List.fromArray(test).filter(isodd).toArray()).to.eql(test.filter(isodd));
+      });
+    });
   });
 });
 
 function add(a, b) { return a + b; }
 function double(a) { return a * 2; }
+function isodd(a)  { return a % 2; }
 
